@@ -1,0 +1,126 @@
+﻿body {
+    font-size: 1em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #D3D3D3;
+}
+
+nav, section {
+    display: block;
+}
+
+header {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    display: block;
+}
+
+footer {
+    display: block;
+    margin: 10em 0 1em 0;
+}
+
+/* Custom sytles for fixed width layout
+-----------------------------------------------------------*/
+#main {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    text-align: left;
+    background-color: #fff;
+}
+
+.header-left {
+}
+
+.header-right {
+    float: right;
+}
+
+/* Custom sytles for blog posts
+-----------------------------------------------------------*/
+.post-parent {
+    margin: 2em 0 0 0;
+}
+
+.post-title {
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 0 1em 0;
+}
+
+.post-content {
+    resize: none;
+}
+
+.post-info {
+    font-style: italic;
+    margin: 1em 0 2em 0;
+}
+
+.post-edit {
+    float: right;
+    margin: 1em 0 2em 0;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+.display-label {
+    font-weight: bold;
+}
+
+.display-field {
+    margin: 0 0 1em 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}

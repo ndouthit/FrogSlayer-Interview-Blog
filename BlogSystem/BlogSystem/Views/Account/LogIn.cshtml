@@ -1,0 +1,45 @@
+﻿@model BlogSystem.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if(Request.IsAuthenticated)
+{
+
+    <h3>You are already logged in!</h3>
+    <div>
+        @Html.ActionLink("Log Out", "LogOut", "Account")
+        <span> | </span>
+        @Html.ActionLink("Return to Index", "Index")
+    </div>
+    
+}
+
+else
+{
+    <h2>Log In</h2>
+    using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "Login failed.")
+        <div>
+            <div>@Html.LabelFor(u => u.Username)</div>
+
+            <div>@Html.TextBoxFor(u => u.Username)
+                    @Html.ValidationMessageFor(u => u.Username)
+            </div>
+
+            <div>@Html.LabelFor(u => u.Password)</div>
+
+            <div>@Html.PasswordFor(u => u.Password)
+                    @Html.ValidationMessageFor(u => u.Password)
+            </div>
+
+            <div>@Html.LabelFor(u => u.RememberMe)
+                    @Html.CheckBoxFor(u => u.RememberMe)</div>
+
+            <input type="submit" value="Log In" />
+        </div>
+    }
+}

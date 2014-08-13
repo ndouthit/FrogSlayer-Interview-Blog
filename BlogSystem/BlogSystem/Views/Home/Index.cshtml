@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BlogSystem.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!Request.IsAuthenticated)
+{
+    <div style="text-align: right;">
+        <h3>You must be logged in to create content.</h3>
+        <div>@Html.ActionLink("New user? Click here to register.", "Register", "Account")</div>
+        <div>@Html.ActionLink("Existing user? Click here to log in.", "LogIn", "Account")</div>
+    </div>
+}
+
+<div class="post-parent">
+    @foreach (var item in Model) {
+        <div class="post-title">
+            <a href="@Url.Action("Details", new { id=item.ID })">
+            @Html.DisplayFor(modelItem => item.Title)
+            </a>
+        </div>
+
+        <div class="post-content">
+            @Html.DisplayFor(modelItem => item.Content)
+        </div>
+
+        <div class="post-edit">
+            @if (Request.IsAuthenticated)
+            {
+                <span>[</span>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID })
+                <span> | </span>
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                <span> ]</span>
+            }
+        </div>
+
+        <div class="post-info">
+            Posted by 
+            @Html.DisplayFor(modelItem => item.Username) |
+            @Html.DisplayFor(modelItem => item.Timestamp) 
+        </div>
+    }
+</div>

@@ -1,0 +1,27 @@
+﻿@model BlogSystem.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="post-title">
+    @Html.DisplayFor(p => p.Title)
+</div>
+
+<div class="post-content">
+    @Html.DisplayFor(p => p.Content)
+</div>
+
+<div class="post-info">
+    @Html.DisplayFor(p => p.Username) | 
+    @Html.DisplayFor(p => p.Timestamp)
+</div>
+
+<p>
+    @if(Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id=Model.ID })
+        <span> | </span>
+    }
+        @Html.ActionLink("Return to Index", "Index")
+</p>

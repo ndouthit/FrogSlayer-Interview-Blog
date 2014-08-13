@@ -1,0 +1,45 @@
+﻿@model BlogSystem.Models.Post
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Edit Blog Post</legend>
+
+        @Html.HiddenFor(p => p.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(p => p.Title)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(p => p.Title, new { style = "width: 750px;" })
+            @Html.ValidationMessageFor(p => p.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(p => p.Content)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(p => p.Content, new { cols = "115", rows = "30", style="resize: none;" } )
+            @Html.ValidationMessageFor(p => p.Content)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Return to Index", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

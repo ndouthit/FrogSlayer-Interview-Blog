@@ -1,0 +1,54 @@
+﻿@model BlogSystem.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if(Request.IsAuthenticated)
+{
+
+    <h3>You are already have an account!</h3>
+    <div>
+        @Html.ActionLink("Log Out", "LogOut", "Account")
+        <span> | </span>
+        @Html.ActionLink("Return to Index", "Index")
+    </div>
+    
+}
+
+else
+{
+    <h2>Create Account</h2>
+    using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <div>
+            <div>@Html.LabelFor(u => u.Username)</div>
+
+            <div>@Html.TextBoxFor(u => u.Username)
+                    @Html.ValidationMessageFor(u => u.Username)
+            </div>
+
+            <div>@Html.LabelFor(u => u.Email)</div>
+
+            <div>@Html.TextBoxFor(u => u.Email)
+                    @Html.ValidationMessageFor(u => u.Email)
+            </div>
+
+            <div>@Html.LabelFor(u => u.Password)</div>
+
+            <div>@Html.PasswordFor(u => u.Password)
+                    @Html.ValidationMessageFor(u => u.Password)
+            </div>
+
+            <div>@Html.LabelFor(u => u.ConfirmPw)</div>
+
+            <div>@Html.PasswordFor(u => u.ConfirmPw)
+                    @Html.ValidationMessageFor(u => u.ConfirmPw)
+            </div>
+
+            <input type="submit" value="Register" />
+        </div>
+    }
+}
